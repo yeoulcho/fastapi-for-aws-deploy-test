@@ -6,9 +6,9 @@ on:
       - main
      
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/KDT-AI-1-LectureNotes
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/fastapi-for-aws-deploy-test
   VERSION: ${{ github.sha }}
-  NAME: KDT-AI-1-LectureNotes-fastapi
+  NAME: fastapi-for-aws-deploy-test
  
 jobs:
   build:
@@ -46,7 +46,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/${{ github.actor }}/kdt-ai-1-lecturenotes:latest
+          tags: ghcr.io/${{ github.actor }}/fastapi-for-aws-deploy-test:latest
           platforms: linux/arm64
           
   deploy:
@@ -76,7 +76,7 @@ jobs:
             
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} -password-stidin
             
-            docker pull ghcr.io/yeoulcho/KDT-AI-1-LectureNotes:latest
+            docker pull ghcr.io/yeoulcho/fastapi-for-aws-deploy-test:latest
 
             docker image prune -f
             docker logout
