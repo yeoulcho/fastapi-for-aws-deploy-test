@@ -74,7 +74,7 @@ jobs:
             cd fastapi/actions-runner
             pwd
             
-            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} -password-stidin
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stidin
             
             docker pull ghcr.io/yeoulcho/fastapi-for-aws-deploy-test:latest
 
